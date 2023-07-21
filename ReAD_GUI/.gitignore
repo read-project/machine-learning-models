@@ -8,3 +8,4 @@ test/
 /app/models/clf_NN_multi_2.h5
 /docker/*_old
 *.tar
+/models/c*.*
