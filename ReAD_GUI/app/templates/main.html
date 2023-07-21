@@ -1,0 +1,32 @@
+  {% extends "base.html" %}
+        {% block content %}
+			{% if results is defined %}
+
+  				<div class="container text-left pl-5">
+					<h5>N. of images processed: {{ results|length }}</h5>
+				</div>
+  				<div class="container text-left mt-2 pl-5">
+					<div class="row row-cols-2">
+						<div class="col">
+							<a href="{{ url_for('read_app.download_json') }}">Download JSON</a>
+						</div>
+						<div class="col">
+							<a href="{{ url_for('read_app.download_rdf') }}">Download RDF</a>
+						</div>
+					</div>
+				</div>
+			<div class="container text-center">
+			  <div class="row row-cols-3 pb-4 mt-3" >
+				  {% for result in results %}
+					<div class="col mt-4 align-self-end"><img src="data:;base64,{{ result.image }}" class="img-thumbnail">
+					<br>
+						{{ result.name }}
+					<br>
+					type:{{ result.predA[0] }} - content:{{ result.predB[0][0] }} (level:{{ result.predB[1][0] }})</div>
+				  {% endfor %}
+			  </div>
+			</div>
+			  {% else %}
+    			No results found
+			  {% endif %}
+		{% endblock %}

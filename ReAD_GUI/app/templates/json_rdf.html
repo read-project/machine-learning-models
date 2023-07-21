@@ -1,0 +1,32 @@
+  {% extends "base.html" %}
+        {% block content %}
+			{% if results is defined %}
+  				<div class="container text-left pl-5">
+					<h5>N. of images processed: {{ results|length }}</h5>
+				</div>
+  				<div class="container text-left mt-2 pl-5">
+					<div class="row row-cols-2">
+						<div class="col">
+							<a href="{{ url_for('read_app.download_json') }}">Download JSON</a>
+						</div>
+						<div class="col">
+							<a href="{{ url_for('read_app.download_rdf') }}">Download RDF</a>
+						</div>
+					</div>
+				</div>
+  			{% else %}
+  				<div class="container text-left mt-3">
+    				No results found
+				</div>
+  		    {% endif %}
+  			{% if json_results is defined %}
+  				<div class="container text-left mt-3">
+  					<pre>{{ json_results|ppjson }}</pre>
+				</div>
+  			{% endif %}
+  			{% if rdf_results is defined %}
+  				<div class="container html-left mt-3">
+					<pre>{{ rdf_results | replace(' ', '&nbsp;')  | replace('<', '&lt;') | replace('>', '&gt;')  | replace('\n', '<br>') | safe  }}</pre>
+				</div>
+  			{% endif %}
+		{% endblock %}

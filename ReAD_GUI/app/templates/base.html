@@ -1,0 +1,66 @@
+<!--TODO
+		libreria https://plugins.krajee.com/file-input/demo#basic-usage
+		lista file con https://jsfiddle.net/Domt301/v3Lwxvhg/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ReAD Model</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+	<div class="container text-center pb-4 pt-4" >
+		<h1>
+			ReAD AI Model
+		</h1>
+	</div>
+
+	<div class="container text-center">
+		<form action = "{{ url_for('read_app.upload') }}" method = "post" enctype="multipart/form-data">
+		  <div class="row">
+
+			<div class="col text-start">
+					<div class="input-group mb-3">
+					  <input type="file" name="file" class="form-control" id="inputGroupFile02" data-allowed-file-extensions='["png","jpg", "gif", "jpeg"]' multiple>
+					  <!--label class="input-group-text" for="inputGroupFile02">Upload</label-->
+					</div>
+					<input type="submit" class="btn btn-primary" aria-label="Left Align" style="margin-right: 15px" value="Start Model">
+			</div>
+
+			<div class="col text-start" style="margin-left: 30px">
+				<div class="form-check">
+				  <input class="form-check-input" type="radio" name="output_type" value="img" id="flexRadioDefault1" checked>
+				  <label class="form-check-label" for="flexRadioDefault1">
+					Show images
+				  </label>
+				</div>
+				<div class="form-check">
+				  <input class="form-check-input" type="radio" name="output_type" value="json" id="flexRadioDefault2">
+				  <label class="form-check-label" for="flexRadioDefault2">
+					Show JSON
+				  </label>
+				</div>
+				<div class="form-check">
+				  <input class="form-check-input" type="radio" name="output_type" value="rdf" id="flexRadioDefault3">
+				  <label class="form-check-label" for="flexRadioDefault2">
+					Show RDF
+				  </label>
+				</div>
+			</div>
+
+		  </div>
+		</form>
+	</div>
+
+	<!-- to display json: https://codepen.io/Xenforu/pen/NWKVGVd -->
+	<!-- JSON 2 RDF: https://github.com/RDFLib/rdflib       https://rml.io/docs/rml/tutorials/json/ -->
+	<hr>
+	{% block content %}
+    {% endblock %}
+
+</body>
+</html>

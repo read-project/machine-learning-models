@@ -1,0 +1,28 @@
+FROM ubuntu:20.04
+
+RUN apt update
+RUN apt install -y zip htop screen libgl1-mesa-glx wget vim git
+
+#install python
+WORKDIR /root/
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh
+RUN chmod +x Miniconda3-latest-Linux-aarch64.sh
+RUN /root/Miniconda3-latest-Linux-aarch64.sh -b && eval "$(/root/miniconda3/bin/conda shell.bash hook)" && /root/miniconda3/bin/conda clean -afy
+RUN /root/miniconda3/bin/conda init
+RUN echo 'conda activate yolo' >> ~/.bashrc
+RUN /root/miniconda3/bin/conda create --name yolo python
+RUN /root/miniconda3/bin/conda run -n yolo pip install seaborn thop flask
+
+RUN apt install -y build-essential
+RUN apt update
+ENV DEBIAN_FRONTEND="noninteractive"
+RUN apt-get install -y libglib2.0-0 libsm6 libxrender1 libxext6
+
+#install requirements
+COPY requirements_arm.txt /root/requirements.txt
+RUN /root/miniconda3/bin/conda run -n yolo pip install -r /root/requirements.txt
+
+RUN git config --global --add safe.directory /workspace
+
+# go to code folder
+WORKDIR /workspace

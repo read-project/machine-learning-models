@@ -1,0 +1,4 @@
+@prefix a-cd: <https://w3id.org/arco/ontology/construction-description> .
+@prefix read: <https://w3id.org/read/> .
+@prefix rs: <https://w3id.org/read/resource/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .

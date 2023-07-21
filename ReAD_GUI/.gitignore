@@ -1,0 +1,10 @@
+.idea/
+__pycache__/
+venv/
+test/
+*_old.*
+#Model Wheits are too large
+/app/models/only*
+/app/models/clf_NN_multi_2.h5
+/docker/*_old
+*.tar
