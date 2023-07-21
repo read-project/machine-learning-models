@@ -5,4 +5,4 @@ here you can find source code to train and use machine learning models for compu
 * Draw folder contains Colab scripts to train and use draw classifier (multilabel classifier for Plan/Elevation/Section)
 * ReAD_GUI folder contains source code for Docker GUI
 
-Please look at ReAD_GUI README for detailed infos.
+Please look at ReAD_GUI [README](./ReAD_GUI/) for developers detailed infos.
