@@ -18,8 +18,11 @@
 			ReAD AI Model
 		</h1>
 	</div>
-
+		<div class="container text-left">
+			<a href="{{ url_for('read_app.how_to') }}">How to </a>
+		</div>
 	<div class="container text-center">
+
 		<form action = "{{ url_for('read_app.upload') }}" method = "post" enctype="multipart/form-data">
 		  <div class="row">
 

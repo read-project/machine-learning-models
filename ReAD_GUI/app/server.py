@@ -13,9 +13,10 @@ from img_draw_classif_model import Model as Model_img_draw
 from img_draw_classif_model import MODEL_FILE as MODEL_FILE_IMG_DRAW
 from img_draw_classif_model import MODELS_FOLDER as MODELS_FOLDER_IMG_DRAW
 from img_draw_classif_model import LABELS as LABELS_IMG_DRAW
+from my_util import system_info
 import base64
 
-DEBUG = False   #True
+DEBUG = True   #True
 VERBOSE = False #True
 
 RDF_PREFIX_FILE='prefix.txt'
@@ -146,6 +147,7 @@ def ping():
     payload = json.loads(request.data)
     if DEBUG:
         print(payload)
+        system_info()
     return jsonify({"response":"ok"}), 200
 
 class Data:
@@ -233,6 +235,11 @@ def download(filename):
         msg= 'Download: folder='+downloads+',file='+filename
         print(msg)  #current_app.logger.info(msg)
     return send_from_directory(directory=downloads, path=filename)
+
+@bp.route('/how_to')
+def how_to():
+    img_path=os.path.join(bp.url_prefix,'static/img')   #os.path.join(app.config['UPLOAD_FOLDER'], 'shovon.jpg')
+    return render_template("how_to.html", path_to_img=img_path)
 
 @bp.route("/predict", methods=["POST"])
 def predict_img():

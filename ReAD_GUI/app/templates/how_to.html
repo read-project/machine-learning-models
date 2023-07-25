@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReAD How to</title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+  <div class="container text-center pb-4 pt-4" >
+    <h1>
+      ReAD AI Model how to
+    </h1>
+  </div>
+  <div class="container text-left">
+    <a href="base.html">Back Home</a>
+  </div>
+  <div class="container text-left mt-2 pl-5">
+    With this web application you can run the ReAD computer vision models to:<br>
+    <ul>
+      <li>
+        <a href="#display">display</a> images classification
+      </li>
+      <li>
+        <a href="#json_rdf">show</a> image classification as JSON
+      </li>
+      <li>
+        <a href="#json_rdf">show</a> image classification as RDF
+      </li>
+    </ul>
+
+    <div class="container text-left mt-4">
+      <a id="display"><b>Display images classification</b></a><br>
+      Push "Browse" and select one or more image files.<br>
+      On the right select "Show images".<br>
+      <div class="container">
+        <div class="col-md-4 px-0">
+          <img src="{{ url_for('static', filename='img/01_display.png') }}" class="img-fluid">
+        </div>
+      </div>
+      Press "Start Model" and wait some seconds till results are shown on your page.<br>
+      The list of images with their name and classification will be displayed:
+      <div class="container">
+        <div class="col-md-4 px-0">
+          <img src="{{ url_for('static', filename='img/02_display.png') }}" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-left mt-4">
+      <a id="json_rdf"><b>Show JSON or RDF</b></a><br>
+      As show before, push "Browse" and select one or more image files.<br>
+      On the right select "JSON" or "RDF".<br>
+      Press "Start Model" and wait some seconds till results are shown on your page.<br>
+      The list of images with their name and classification will be displayed:
+      <div class="container">
+        <div class="col-md-4 px-0">
+          <img src="{{ url_for('static', filename='img/03_display.png') }}" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
