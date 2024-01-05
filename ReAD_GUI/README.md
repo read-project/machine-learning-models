@@ -28,8 +28,8 @@ to set the url prefix based on your web server routing configuration (delete if 
 ### Models weights
 To download model weights use following [link](http://150.146.211.35/read_serv/download/models_weights.tar)
 ### Images datasets
-* To download Picture vs Draw classifier dataset use following [link](http://150.146.211.35/read_serv/download/model1_img.tar)
-* To download Draw classifier (Plans, Sections, Elevations, Other) dataset use following [link](http://150.146.211.35/read_serv/download/model2_img.tar)
+* To download Picture vs Draw classifier dataset use following link: [http://150.146.211.35/read_serv/download/model1_img.tar](http://150.146.211.35/read_serv/download/model1_img.tar) 
+* To download Draw classifier (Plans, Sections, Elevations, Other) dataset use following link: [http://150.146.211.35/read_serv/download/model2_img.tar](http://150.146.211.35/read_serv/download/model2_img.tar)
 ### Model web services
 You can check service status by command line:
 ```
